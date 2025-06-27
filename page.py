@@ -2,11 +2,12 @@ from flask import Flask, render_template_string
 import requests
 from datetime import datetime, timedelta, timezone
 import pytz
+import os
 from dateutil import parser
 
 app = Flask(__name__)
 
-API_KEY = '2c28458bfcc92254bed57ea5da43a4bc'
+API_KEY = os.environ.get('API_KEY')
 BASE_URL = 'http://api.aviationstack.com/v1/flights'
 
 def fetch_fedex_flights():
